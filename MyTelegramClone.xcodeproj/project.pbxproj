@@ -28,6 +28,7 @@
 		AA0013 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0802 /* MessageCell.swift */; };
 		AA0014 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0901 /* ContactsViewController.swift */; };
 		AA0015 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1001 /* SettingsViewController.swift */; };
+		AA0026 /* SettingsViewController_New.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1002 /* SettingsViewController_New.swift */; };
 		AA0016 /* PhoneCountries.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1101 /* PhoneCountries.txt */; };
 		AA0017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1201 /* LaunchScreen.storyboard */; };
 		AA0018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1301 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		AA0802 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		AA0901 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		AA1001 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AA1002 /* SettingsViewController_New.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController_New.swift; sourceTree = "<group>"; };
 		AA1101 /* PhoneCountries.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PhoneCountries.txt; sourceTree = "<group>"; };
 		AA1201 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA1301 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1001 /* SettingsViewController.swift */,
+				AA1002 /* SettingsViewController_New.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				AA0013 /* MessageCell.swift in Sources */,
 				AA0014 /* ContactsViewController.swift in Sources */,
 				AA0015 /* SettingsViewController.swift in Sources */,
+				AA0026 /* SettingsViewController_New.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
