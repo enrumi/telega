@@ -49,55 +49,8 @@ struct User: Codable {
     }
 }
 
-// MARK: - Chat Model (обновлённая версия)
-
-struct Chat: Codable {
-    let id: Int
-    let title: String
-    let lastMessage: String?
-    let timestamp: Date
-    let unreadCount: Int?
-    let avatarUrl: String?
-    let username: String? // NEW: для поддержки @username
-    let isChannel: Bool?
-    let isGroup: Bool?
-    
-    // Вычисляемые свойства
-    var displayTitle: String {
-        return title
-    }
-    
-    var hasUsername: Bool {
-        return username != nil && !(username?.isEmpty ?? true)
-    }
-}
-
-// MARK: - Message Model (обновлённая)
-
-struct Message: Codable {
-    let id: Int
-    let chatId: Int
-    let senderId: Int64
-    let senderUsername: String? // NEW
-    let text: String
-    let timestamp: Date
-    let isOutgoing: Bool
-    
-    // Media support (NEW for v2.0)
-    let mediaType: MediaType?
-    let mediaUrl: String?
-    let mediaThumbnailUrl: String?
-    
-    enum MediaType: String, Codable {
-        case photo
-        case video
-        case document
-        case sticker
-        case animation // GIF/TGS
-        case voice
-        case audio
-    }
-}
+// Chat и Message уже объявлены в NetworkManager.swift
+// Используем их оттуда
 
 // MARK: - Search by Username
 
@@ -126,7 +79,7 @@ extension NetworkManager {
         
         print("🔍 SEARCH CHAT: @\(cleanUsername)")
         
-        let chat: Chat = try await get(endpoint: endpoint)
+        let chat: Chat = try await NetworkManager.shared.get(endpoint: endpoint)
         
         print("✅ FOUND CHAT: \(chat.displayTitle)")
         
@@ -191,7 +144,7 @@ extension NetworkManager {
 extension NetworkManager {
     
     func put<T: Decodable, B: Encodable>(endpoint: String, body: B) async throws -> T {
-        guard let url = URL(string: baseURL + endpoint) else {
+        guard let url = URL(string: NetworkManager.shared.baseURL + endpoint) else {
             throw NetworkError.invalidURL
         }
         

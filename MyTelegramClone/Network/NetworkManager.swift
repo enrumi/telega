@@ -74,7 +74,7 @@ public final class NetworkManager {
     public static let shared = NetworkManager()
     
     // Твой сервер (измени на свой IP если нужно)
-    private let baseURL = "http://192.168.1.109:3000"
+    let baseURL = "http://192.168.1.109:3000"
     
     // Токен авторизации
     private(set) var authToken: String? {
@@ -181,7 +181,7 @@ public final class NetworkManager {
     
     // MARK: - Generic HTTP Methods
     
-    private func get<T: Decodable>(endpoint: String) async throws -> T {
+    func get<T: Decodable>(endpoint: String) async throws -> T {
         guard let url = URL(string: baseURL + endpoint) else {
             throw NetworkError.invalidURL
         }
