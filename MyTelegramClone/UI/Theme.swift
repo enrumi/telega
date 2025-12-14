@@ -40,37 +40,69 @@ struct TelegramTheme {
         static let badgeTextColor = UIColor(rgb: 0xffffff)
     }
     
-    // MARK: - Chat List
+    // MARK: - Chat List (ТОЧНЫЕ цвета из DefaultDayPresentationTheme.swift)
     struct ChatList {
         static let backgroundColor = UIColor(rgb: 0xffffff)
-        static let itemBackgroundColor = UIColor(rgb: 0xffffff)
-        static let itemHighlightedBackgroundColor = UIColor(rgb: 0xe5e5ea)
         static let itemSeparatorColor = UIColor(rgb: 0xc8c7cc)
+        static let itemBackgroundColor = UIColor(rgb: 0xffffff)
+        static let pinnedItemBackgroundColor = UIColor(rgb: 0xf7f7f7)
+        static let itemHighlightedBackgroundColor = UIColor(rgb: 0xe5e5ea)
+        static let pinnedItemHighlightedBackgroundColor = UIColor(rgb: 0xe5e5ea)
+        static let itemSelectedBackgroundColor = UIColor(rgb: 0xe9f0fa)
         
         static let titleColor = UIColor(rgb: 0x000000)
-        static let messageColor = UIColor(rgb: 0x8e8e93)
-        static let dateColor = UIColor(rgb: 0x8e8e93)
+        static let secretTitleColor = UIColor(rgb: 0x00b12c)
+        static let dateTextColor = UIColor(rgb: 0x8e8e93)
+        static let authorNameColor = UIColor(rgb: 0x000000)
+        static let messageTextColor = UIColor(rgb: 0x8e8e93)
+        static let messageHighlightedTextColor = UIColor(rgb: 0x000000)
+        static let messageDraftTextColor = UIColor(rgb: 0xdd4b39)
         
-        static let unreadBadgeBackgroundColor = UIColor(rgb: 0x007aff)
-        static let unreadBadgeTextColor = UIColor(rgb: 0xffffff)
+        static let checkmarkColor = accentColor
+        static let pendingIndicatorColor = UIColor(rgb: 0x8e8e93)
+        static let failedFillColor = UIColor(rgb: 0xff3b30)
+        static let failedForegroundColor = UIColor(rgb: 0xffffff)
         
-        static let mutedBadgeBackgroundColor = UIColor(rgb: 0xd0d0d5)
-        static let mutedBadgeTextColor = UIColor(rgb: 0xffffff)
+        static let muteIconColor = UIColor(rgb: 0xa7a7ad)
+        static let unreadBadgeActiveBackgroundColor = accentColor
+        static let unreadBadgeActiveTextColor = UIColor(rgb: 0xffffff)
+        static let unreadBadgeInactiveBackgroundColor = UIColor(rgb: 0xb6b6bb)
+        static let unreadBadgeInactiveTextColor = UIColor(rgb: 0xffffff)
+        
+        static let reactionBadgeActiveBackgroundColor = UIColor(rgb: 0xff2d55)
+        static let pinnedBadgeColor = UIColor(rgb: 0xb6b6bb)
+        static let pinnedSearchBarColor = UIColor(rgb: 0xe5e5e5)
+        static let regularSearchBarColor = UIColor(rgb: 0xe9e9e9)
+        
+        static let sectionHeaderFillColor = UIColor(rgb: 0xf7f7f7)
+        static let sectionHeaderTextColor = UIColor(rgb: 0x8e8e93)
+        
+        static let verifiedIconFillColor = accentColor
+        static let verifiedIconForegroundColor = UIColor(rgb: 0xffffff)
+        static let secretIconColor = UIColor(rgb: 0x00b12c)
+        
+        static let onlineDotColor = UIColor(rgb: 0x4cc91f)
     }
     
-    // MARK: - Chat (Messages)
+    // MARK: - Chat (Messages) - ТОЧНЫЕ цвета из оригинала
     struct Chat {
         static let backgroundColor = UIColor(rgb: 0xffffff)
         
-        // Входящие сообщения
-        static let incomingBubbleBackgroundColor = UIColor(rgb: 0xf1f1f4)
-        static let incomingBubbleTextColor = UIColor(rgb: 0x000000)
-        static let incomingBubbleSecondaryTextColor = UIColor(rgb: 0x8e8e93)
+        // Входящие сообщения (белые пузыри)
+        static let incomingBubbleBackgroundColor = UIColor(rgb: 0xffffff)
+        static let incomingBubbleHighlightedBackgroundColor = UIColor(rgb: 0xd9f4ff)
+        static let incomingBubblePrimaryTextColor = UIColor(rgb: 0x000000)
+        static let incomingBubbleSecondaryTextColor = UIColor(rgb: 0x525252, alpha: 0.6)
+        static let incomingBubbleLinkTextColor = UIColor(rgb: 0x004bad)
+        static let incomingBubbleAccentTextColor = accentColor
         
-        // Исходящие сообщения
-        static let outgoingBubbleBackgroundColor = UIColor(rgb: 0xd4f4dd)
-        static let outgoingBubbleTextColor = UIColor(rgb: 0x000000)
-        static let outgoingBubbleSecondaryTextColor = UIColor(rgb: 0x6fa86f)
+        // Исходящие сообщения (зелёные пузыри)
+        static let outgoingBubbleBackgroundColor = UIColor(rgb: 0xe1ffc7)
+        static let outgoingBubbleHighlightedBackgroundColor = UIColor(rgb: 0xbaff93)
+        static let outgoingBubblePrimaryTextColor = UIColor(rgb: 0x000000)
+        static let outgoingBubbleSecondaryTextColor = UIColor(rgb: 0x008c09, alpha: 0.8)
+        static let outgoingBubbleLinkTextColor = UIColor(rgb: 0x00731f)
+        static let outgoingBubbleAccentTextColor = UIColor(rgb: 0x00a700)
         
         // Поле ввода
         static let inputBackgroundColor = UIColor(rgb: 0xffffff)
@@ -78,10 +110,16 @@ struct TelegramTheme {
         static let inputFieldTextColor = UIColor(rgb: 0x000000)
         static let inputFieldPlaceholderColor = UIColor(rgb: 0xb6b6bb)
         static let inputPanelSeparatorColor = UIColor(rgb: 0xc8c7cc)
+        static let inputPanelBackgroundColor = UIColor(rgb: 0xf7f7f7)
         
-        // Кнопка отправки
+        // Кнопки
         static let sendButtonColor = accentColor
-        static let sendButtonDisabledColor = UIColor(rgb: 0xd0d0d0)
+        static let sendButtonDisabledColor = UIColor(rgb: 0x7e7e87)
+        static let mediaButtonColor = UIColor(rgb: 0x7e7e87)
+        
+        // Service messages (дата, системные сообщения)
+        static let serviceBackgroundColor = UIColor(rgb: 0x000000, alpha: 0.2)
+        static let serviceTextColor = UIColor(rgb: 0xffffff)
     }
     
     // MARK: - Authorization
