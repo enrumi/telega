@@ -26,10 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Navigation
     
     func showAuthorizationInterface() {
-        let authController = AuthorizationPhoneViewController()
-        authController.onAuthSuccess = { [weak self] in
-            self?.showMainInterface()
-        }
+        // Используем новый AuthorizationPhoneViewController с AuthorizationPhoneNode из оригинала
+        let authController = AuthorizationPhoneViewController_New()
         
         let navigationController = UINavigationController(rootViewController: authController)
         navigationController.navigationBar.prefersLargeTitles = false
