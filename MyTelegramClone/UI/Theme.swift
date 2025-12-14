@@ -133,3 +133,4 @@ struct TelegramFonts {
     static let settingsItemValue = UIFont.systemFont(ofSize: 17, weight: .regular)
     static let settingsSectionHeader = UIFont.systemFont(ofSize: 13, weight: .regular)
 }
+
