@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - Список чатов (1:1 с Telegram)
+// MARK: - Список чатов (с ChatListItemNode из оригинала Telegram)
 class ChatListViewController: UIViewController {
     
     private var chats: [Chat] = []
@@ -16,7 +16,8 @@ class ChatListViewController: UIViewController {
         table.rowHeight = 76
         table.delegate = self
         table.dataSource = self
-        table.register(ChatListCell.self, forCellReuseIdentifier: ChatListCell.reuseIdentifier)
+        // Регистрируем оригинальную ячейку из Telegram
+        table.register(ChatListItemNode.self, forCellReuseIdentifier: "ChatListItemNode")
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -174,9 +175,51 @@ extension ChatListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChatListCell.reuseIdentifier, for: indexPath) as! ChatListCell
+        // Используем ChatListItemNode из оригинала Telegram
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListItemNode", for: indexPath) as! ChatListItemNode
         let chat = chats[indexPath.row]
-        cell.configure(with: chat)
+        
+        // Конвертируем Chat модель в формат ChatListItem
+        let peer = EnginePeer(
+            id: Int64(chat.id),
+            title: chat.title,
+            avatarUrl: nil
+        )
+        
+        let messages = [EngineMessage(
+            id: 0,
+            text: chat.lastMessage,
+            timestamp: Int32(Date().timeIntervalSince1970 - Double(indexPath.row * 300)),
+            author: nil
+        )]
+        
+        let interaction = ChatListNodeInteraction()
+        interaction.peerSelected = { [weak self] peerId in
+            let chat = self?.chats[indexPath.row]
+            if let chat = chat {
+                let chatVC = ChatViewController(chat: chat)
+                self?.navigationController?.pushViewController(chatVC, animated: true)
+            }
+        }
+        
+        let content = ChatListItemContent.peer(
+            peer: peer,
+            threadInfo: nil,
+            messages: messages,
+            readState: chat.unreadCount > 0 ? chat.unreadCount : nil,
+            isRemovedFromTotalUnreadCount: false,
+            draftState: nil,
+            isPinned: false,
+            storyState: nil
+        )
+        
+        let item = ChatListItem(
+            content: content,
+            index: indexPath.row,
+            interaction: interaction
+        )
+        
+        cell.configure(with: item)
         return cell
     }
 }
