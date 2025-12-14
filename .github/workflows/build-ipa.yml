@@ -1,0 +1,270 @@
+name: Build MyTelegram iOS IPA
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
+    
+    - name: List directory structure
+      run: |
+        echo "📁 Project structure:"
+        ls -la
+        echo ""
+        echo "📱 Xcode project:"
+        ls -la MyTelegramClone/MyTelegramClone.xcodeproj/
+    
+    - name: Build Archive
+      run: |
+        cd MyTelegramClone
+        xcodebuild -project MyTelegramClone.xcodeproj \
+          -scheme MyTelegramClone \
+          -sdk iphoneos \
+          -configuration Release \
+          -archivePath $PWD/build/MyTelegramClone.xcarchive \
+          archive \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
+    
+    - name: Create unsigned IPA
+      run: |
+        cd MyTelegramClone
+        mkdir -p build/Payload
+        cp -r build/MyTelegramClone.xcarchive/Products/Applications/MyTelegramClone.app build/Payload/
+        cd build
+        zip -r MyTelegramClone-unsigned.ipa Payload
+        rm -rf Payload
+        ls -lh MyTelegramClone-unsigned.ipa
+    
+    - name: Upload IPA
+      uses: actions/upload-artifact@v4
+      with:
+        name: MyTelegramClone-IPA
+        path: MyTelegramClone/build/*.ipa
+    
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: MyTelegramClone/build/*.ipa
+        body: |
+          ## 📱 MyTelegram - Telegram Clone for iOS
+          
+          **A full-featured Telegram clone with real backend API**
+          
+          ### 📲 Installation
+          1. Download the `MyTelegramClone-unsigned.ipa` file
+          2. Sideload using one of these tools:
+             - **AltStore** (recommended for free accounts)
+             - **Sideloadly** (Windows/Mac)
+             - **TrollStore** (if available for your iOS version)
+          3. Trust the certificate in Settings → General → VPN & Device Management
+          
+          ### ✨ Features
+          
+          **Authorization:**
+          - 📞 Phone number login (+7, +1, +44, etc.)
+          - 🌍 238 countries with codes
+          - 🔍 Search countries
+          - 🔐 Code verification (always 22222)
+          - 🔑 JWT token authentication
+          
+          **Chat List:**
+          - 💬 Real-time chat list
+          - 🔴 Unread message badges
+          - ✅ Read status indicators
+          - 🔄 Pull to refresh
+          - 🔎 Search chats
+          - ✏️ Edit mode with swipe actions
+          - 📌 Pinned chats support
+          
+          **Chat:**
+          - 💬 Send/receive text messages
+          - ⏰ Message timestamps
+          - ✓✓ Read receipts
+          - 👤 Sender names (group chats)
+          - 🎨 Telegram-style message bubbles
+          - 📱 Keyboard handling
+          - 🔄 Auto-scroll to latest
+          
+          **Settings:**
+          - 👤 Profile info
+          - 🔒 Privacy settings
+          - 🔔 Notifications
+          - 📊 Data and storage
+          - 🎨 Appearance
+          - 🌐 Language
+          - 🚪 Logout
+          
+          **UI/UX:**
+          - 🎨 100% Telegram design system
+          - 🎯 Exact colors (#007aff accent)
+          - 📝 SF Pro fonts
+          - ✨ Smooth animations
+          - 📱 Large titles navigation
+          - 🔵 Tab bar with badges
+          
+          ### 🔧 Backend Setup Required
+          
+          This app requires a backend server running on your network.
+          
+          1. **Install dependencies:**
+             ```bash
+             npm install
+             ```
+          
+          2. **Initialize database:**
+             ```bash
+             npm run init-db
+             ```
+          
+          3. **Start server:**
+             ```bash
+             npm start
+             ```
+             Server will start on `http://192.168.1.109:3000`
+          
+          4. **Update server IP in the app (if needed):**
+             - Open `MyTelegramClone/Network/NetworkManager.swift`
+             - Change `baseURL` to your server's IP address
+             - Rebuild the IPA
+          
+          ### 📝 Test Accounts
+          
+          After running `npm run init-db`, 3 test users are created:
+          - **+79123456789** - John Doe
+          - **+79987654321** - Jane Smith
+          - **+79111111111** - Dev Team
+          
+          **Login code is always:** `22222`
+          
+          You can login with ANY phone number, code is always `22222`.
+          New users are automatically created on first login.
+          
+          ### 🏗️ Tech Stack
+          
+          **iOS (Frontend):**
+          - UIKit (iOS 14+)
+          - Swift 5.9+
+          - URLSession (networking)
+          - UserDefaults (token storage)
+          - Auto Layout
+          
+          **Backend:**
+          - Node.js 18+
+          - Express.js
+          - SQLite3 database
+          - JWT authentication
+          - REST API
+          
+          ### 📚 API Endpoints
+          
+          **Auth:**
+          - `POST /auth/login` - Login with phone + code (22222)
+          
+          **Chats:**
+          - `GET /chats` - Get user's chats
+          - `GET /chats/:id/messages` - Get chat messages
+          - `POST /chats/:id/send` - Send message
+          
+          ### 🗄️ Database
+          
+          SQLite database with 4 tables:
+          - `users` - User accounts
+          - `chats` - Chat rooms
+          - `chat_participants` - Chat membership
+          - `messages` - All messages with read status
+          
+          ### ⚠️ Important Notes
+          
+          - **Unsigned IPA:** You need to sign it yourself or use a sideloading tool
+          - **Backend Required:** The app won't work without a running backend server
+          - **Network Access:** Your iPhone must be on the same network as the backend
+          - **iOS 14+:** Minimum iOS version required
+          - **Code is 22222:** Always use this code for login
+          
+          ### 🌍 Supported Countries
+          
+          238 countries with phone codes:
+          - 🇷🇺 Russia (+7)
+          - 🇺🇸 United States (+1)
+          - 🇬🇧 United Kingdom (+44)
+          - 🇩🇪 Germany (+49)
+          - 🇫🇷 France (+33)
+          - 🇮🇹 Italy (+39)
+          - 🇪🇸 Spain (+34)
+          - 🇺🇦 Ukraine (+380)
+          - 🇰🇿 Kazakhstan (+77)
+          - 🇨🇳 China (+86)
+          - And 228 more...
+          
+          ### 🎨 Design
+          
+          **Colors (exact from Telegram):**
+          - Accent: `#007aff`
+          - Chat List Background: `#ffffff`
+          - Incoming Bubble: `#f1f1f4`
+          - Outgoing Bubble: `#d4f4dd`
+          - Navigation Bar: `#f7f7f7`
+          - Tab Bar: `#f2f2f2`
+          
+          **Fonts:**
+          - SF Pro Display (system)
+          - Bold, Semibold, Regular weights
+          
+          ### 📖 Documentation
+          
+          - Backend API: `README_BACKEND.md`
+          - iOS App: `README_FRONTEND.md`
+          - Quick Start: `README_QUICKSTART.md`
+          - Icons Guide: `README_ICONS.md`
+          
+          ### 🐛 Troubleshooting
+          
+          **"Cannot connect to server":**
+          - Check backend is running (`npm start`)
+          - Verify IP address in `NetworkManager.swift`
+          - Ensure iPhone is on same Wi-Fi network
+          
+          **"Invalid code":**
+          - Code is always `22222` (5 digits)
+          - Try again with exactly this code
+          
+          **"No chats showing":**
+          - Run `npm run init-db` to create test data
+          - Restart backend server
+          - Pull to refresh in the app
+          
+          ### 🤝 Contributing
+          
+          This is a demonstration project showing how to build a production-quality messenger clone.
+          Feel free to use it for learning purposes!
+          
+          ### 📄 License
+          
+          Based on open-source Telegram iOS (GPL v2/v3)
+          
+          ---
+          
+          **Built with ❤️ using Swift and Node.js**
+          
+          🚀 **Ready to chat!**
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
