@@ -32,7 +32,7 @@ class ChatListViewController: UIViewController {
         let label = UILabel()
         label.text = "No chats yet"
         label.font = TelegramFonts.chatListMessage
-        label.textColor = TelegramTheme.ChatList.messageColor
+        label.textColor = TelegramTheme.ChatList.messageTextColor
         label.textAlignment = .center
         label.isHidden = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +76,7 @@ class ChatListViewController: UIViewController {
         title = "Chats"
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.backgroundColor
+        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.opaqueBackgroundColor
         navigationController?.navigationBar.tintColor = TelegramTheme.NavigationBar.buttonColor
         
         // Кнопка "Compose"

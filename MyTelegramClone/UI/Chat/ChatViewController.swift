@@ -34,7 +34,7 @@ class ChatViewController: UIViewController {
     
     private let inputTopBorder: UIView = {
         let view = UIView()
-        view.backgroundColor = TelegramTheme.Chat.inputPanelSeparatorColor
+        view.backgroundColor = TelegramTheme.Chat.panelSeparatorColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -42,8 +42,8 @@ class ChatViewController: UIViewController {
     private let inputTextView: UITextView = {
         let textView = UITextView()
         textView.font = TelegramFonts.inputText
-        textView.textColor = TelegramTheme.Chat.inputFieldTextColor
-        textView.backgroundColor = TelegramTheme.Chat.inputFieldBackgroundColor
+        textView.textColor = TelegramTheme.Chat.inputTextColor
+        textView.backgroundColor = TelegramTheme.Chat.inputBackgroundColor
         textView.layer.cornerRadius = 18
         textView.textContainerInset = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
         textView.isScrollEnabled = false
@@ -55,7 +55,7 @@ class ChatViewController: UIViewController {
         let label = UILabel()
         label.text = "Message"
         label.font = TelegramFonts.inputPlaceholder
-        label.textColor = TelegramTheme.Chat.inputFieldPlaceholderColor
+        label.textColor = TelegramTheme.Chat.inputPlaceholderColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,7 +63,7 @@ class ChatViewController: UIViewController {
     private let sendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "arrow.up.circle.fill"), for: .normal)
-        button.tintColor = TelegramTheme.Chat.sendButtonColor
+        button.tintColor = TelegramTheme.Chat.actionControlFillColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill

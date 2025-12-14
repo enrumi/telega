@@ -36,7 +36,7 @@ class AuthorizationPhoneViewController: UIViewController {
         let label = UILabel()
         label.text = "Please confirm your country code\nand enter your phone number."
         label.font = TelegramFonts.authDescription
-        label.textColor = TelegramTheme.Authorization.secondaryTextColor
+        label.textColor = TelegramTheme.ChatList.messageTextColor
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class AuthorizationPhoneViewController: UIViewController {
         
         // Стрелка справа
         let chevron = UIImageView(image: UIImage(systemName: "chevron.right"))
-        chevron.tintColor = TelegramTheme.Authorization.secondaryTextColor
+        chevron.tintColor = TelegramTheme.ChatList.messageTextColor
         chevron.translatesAutoresizingMaskIntoConstraints = false
         button.addSubview(chevron)
         
@@ -83,7 +83,7 @@ class AuthorizationPhoneViewController: UIViewController {
         let label = UILabel()
         label.text = "+7"
         label.font = TelegramFonts.authInput
-        label.textColor = TelegramTheme.Authorization.inputFieldTextColor
+        label.textColor = TelegramTheme.Authorization.inputFieldPrimaryColor
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -99,7 +99,7 @@ class AuthorizationPhoneViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "000 000 00 00"
         textField.font = TelegramFonts.authInput
-        textField.textColor = TelegramTheme.Authorization.inputFieldTextColor
+        textField.textColor = TelegramTheme.Authorization.inputFieldPrimaryColor
         textField.keyboardType = .numberPad
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField

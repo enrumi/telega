@@ -36,7 +36,7 @@ class ChatListCell: UITableViewCell {
     private let messageLabel: UILabel = {
         let label = UILabel()
         label.font = TelegramFonts.chatListMessage
-        label.textColor = TelegramTheme.ChatList.messageColor
+        label.textColor = TelegramTheme.ChatList.messageTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,7 +44,7 @@ class ChatListCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = TelegramFonts.chatListDate
-        label.textColor = TelegramTheme.ChatList.dateColor
+        label.textColor = TelegramTheme.ChatList.dateTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -93,8 +93,8 @@ class ChatListCell: UITableViewCell {
     private let unreadBadge: UILabel = {
         let label = UILabel()
         label.font = TelegramFonts.chatListBadge
-        label.textColor = TelegramTheme.ChatList.unreadBadgeTextColor
-        label.backgroundColor = TelegramTheme.ChatList.unreadBadgeBackgroundColor
+        label.textColor = TelegramTheme.ChatList.unreadBadgeActiveTextColor
+        label.backgroundColor = TelegramTheme.ChatList.unreadBadgeActiveBackgroundColor
         label.textAlignment = .center
         label.layer.cornerRadius = 10
         label.clipsToBounds = true

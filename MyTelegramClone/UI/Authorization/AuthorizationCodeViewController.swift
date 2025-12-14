@@ -36,7 +36,7 @@ class AuthorizationCodeViewController: UIViewController {
         let label = UILabel()
         label.text = "We have sent you a code.\nPlease enter it below."
         label.font = TelegramFonts.authDescription
-        label.textColor = TelegramTheme.Authorization.secondaryTextColor
+        label.textColor = TelegramTheme.ChatList.messageTextColor
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ class AuthorizationCodeViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Code"
         textField.font = TelegramFonts.authInput
-        textField.textColor = TelegramTheme.Authorization.inputFieldTextColor
+        textField.textColor = TelegramTheme.Authorization.inputFieldPrimaryColor
         textField.textAlignment = .center
         textField.keyboardType = .numberPad
         textField.backgroundColor = TelegramTheme.Authorization.inputFieldBackgroundColor
