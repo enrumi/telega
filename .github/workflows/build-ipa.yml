@@ -30,19 +30,24 @@ jobs:
         echo "📱 Xcode project:"
         ls -la MyTelegramClone.xcodeproj/
     
+    - name: Clean DerivedData
+      run: rm -rf ~/Library/Developer/Xcode/DerivedData/*
+    
     - name: Build Archive
       run: |
+        xcodebuild clean -project MyTelegramClone.xcodeproj -scheme MyTelegramClone
         xcodebuild -project MyTelegramClone.xcodeproj \
           -scheme MyTelegramClone \
           -sdk iphoneos \
           -configuration Release \
           -archivePath $PWD/build/MyTelegramClone.xcarchive \
+          -derivedDataPath $PWD/build/DerivedData \
           archive \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO \
-          ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS=NO \
-          ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT=YES
+          GCC_GENERATE_DEBUGGING_SYMBOLS=NO \
+          SWIFT_COMPILATION_MODE=wholemodule
     
     - name: Create unsigned IPA
       run: |
