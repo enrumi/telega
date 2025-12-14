@@ -203,6 +203,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		AA1050 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AA1100 /* GlobalSearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		AA1100 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +313,7 @@
 				AA0014 /* ContactsViewController.swift in Sources */,
 				AA0015 /* SettingsViewController.swift in Sources */,
 				AA0026 /* SettingsViewController_New.swift in Sources */,
+				AA0028 /* GlobalSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
