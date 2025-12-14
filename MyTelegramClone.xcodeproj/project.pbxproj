@@ -11,6 +11,7 @@
 		AA0002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0102 /* SceneDelegate.swift */; };
 		AA0003 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0201 /* NetworkManager.swift */; };
 		AA0004 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0301 /* Country.swift */; };
+		AA0025 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0302 /* User.swift */; };
 		AA0005 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0401 /* Theme.swift */; };
 		AA0006 /* AuthorizationPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0501 /* AuthorizationPhoneViewController.swift */; };
 		AA0007 /* AuthorizationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0502 /* AuthorizationCodeViewController.swift */; };
@@ -39,6 +40,7 @@
 		AA0102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AA0201 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AA0301 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		AA0302 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA0401 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		AA0501 /* AuthorizationPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPhoneViewController.swift; sourceTree = "<group>"; };
 		AA0502 /* AuthorizationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0301 /* Country.swift */,
+				AA0302 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				AA0002 /* SceneDelegate.swift in Sources */,
 				AA0003 /* NetworkManager.swift in Sources */,
 				AA0004 /* Country.swift in Sources */,
+				AA0025 /* User.swift in Sources */,
 				AA0005 /* Theme.swift in Sources */,
 				AA0006 /* AuthorizationPhoneViewController.swift in Sources */,
 				AA0007 /* AuthorizationCodeViewController.swift in Sources */,
