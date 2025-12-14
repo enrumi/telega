@@ -144,7 +144,7 @@ extension NetworkManager {
 extension NetworkManager {
     
     func put<T: Decodable, B: Encodable>(endpoint: String, body: B) async throws -> T {
-        guard let url = URL(string: NetworkManager.shared.baseURL + endpoint) else {
+        guard let url = URL(string: baseURL + endpoint) else {
             throw NetworkError.invalidURL
         }
         
@@ -158,7 +158,7 @@ extension NetworkManager {
         
         request.httpBody = try JSONEncoder().encode(body)
         
-        let (data, response) = try await NetworkManager.shared.session.data(for: request)
+        let (data, response) = try await session.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse else {
             throw URLError(.badServerResponse)
