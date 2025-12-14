@@ -26,6 +26,7 @@
 		AA0020 /* ChatListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0703 /* ChatListItemNode.swift */; };
 		AA0012 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0801 /* ChatViewController.swift */; };
 		AA0013 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0802 /* MessageCell.swift */; };
+		AA0027 /* MessageBubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0803 /* MessageBubbleNode.swift */; };
 		AA0014 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0901 /* ContactsViewController.swift */; };
 		AA0015 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1001 /* SettingsViewController.swift */; };
 		AA0026 /* SettingsViewController_New.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1002 /* SettingsViewController_New.swift */; };
@@ -56,6 +57,7 @@
 		AA0703 /* ChatListItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItemNode.swift; sourceTree = "<group>"; };
 		AA0801 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AA0802 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		AA0803 /* MessageBubbleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleNode.swift; sourceTree = "<group>"; };
 		AA0901 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		AA1001 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA1002 /* SettingsViewController_New.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController_New.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				AA0801 /* ChatViewController.swift */,
 				AA0802 /* MessageCell.swift */,
+				AA0803 /* MessageBubbleNode.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				AA0020 /* ChatListItemNode.swift in Sources */,
 				AA0012 /* ChatViewController.swift in Sources */,
 				AA0013 /* MessageCell.swift in Sources */,
+				AA0027 /* MessageBubbleNode.swift in Sources */,
 				AA0014 /* ContactsViewController.swift in Sources */,
 				AA0015 /* SettingsViewController.swift in Sources */,
 				AA0026 /* SettingsViewController_New.swift in Sources */,
