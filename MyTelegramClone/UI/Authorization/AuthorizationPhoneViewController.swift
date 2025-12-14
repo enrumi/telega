@@ -137,7 +137,8 @@ class AuthorizationPhoneViewController: UIViewController {
     // MARK: - Setup
     
     private func setupUI() {
-        view.backgroundColor = TelegramTheme.Authorization.backgroundColor
+        // UI уже настроен в AuthorizationPhoneNode
+        return
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -215,7 +216,7 @@ class AuthorizationPhoneViewController: UIViewController {
             target: self,
             action: #selector(nextButtonTapped)
         )
-        nextButton.isEnabled = false
+        phoneNode.inProgress = true
         navigationItem.rightBarButtonItem = nextButton
         
         // Применяем тему

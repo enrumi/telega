@@ -14,6 +14,10 @@
 		AA0005 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0401 /* Theme.swift */; };
 		AA0006 /* AuthorizationPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0501 /* AuthorizationPhoneViewController.swift */; };
 		AA0007 /* AuthorizationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0502 /* AuthorizationCodeViewController.swift */; };
+		AA0021 /* AuthorizationPhoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0504 /* AuthorizationPhoneNode.swift */; };
+		AA0022 /* AuthorizationCodeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0505 /* AuthorizationCodeNode.swift */; };
+		AA0023 /* AuthorizationPhoneViewController_New.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0506 /* AuthorizationPhoneViewController_New.swift */; };
+		AA0024 /* AuthorizationCodeViewController_New.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0507 /* AuthorizationCodeViewController_New.swift */; };
 		AA0008 /* CountrySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0503 /* CountrySelectionViewController.swift */; };
 		AA0009 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0601 /* MainTabBarController.swift */; };
 		AA0010 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0701 /* ChatListViewController.swift */; };
@@ -39,6 +43,10 @@
 		AA0501 /* AuthorizationPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPhoneViewController.swift; sourceTree = "<group>"; };
 		AA0502 /* AuthorizationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeViewController.swift; sourceTree = "<group>"; };
 		AA0503 /* CountrySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewController.swift; sourceTree = "<group>"; };
+		AA0504 /* AuthorizationPhoneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPhoneNode.swift; sourceTree = "<group>"; };
+		AA0505 /* AuthorizationCodeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeNode.swift; sourceTree = "<group>"; };
+		AA0506 /* AuthorizationPhoneViewController_New.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPhoneViewController_New.swift; sourceTree = "<group>"; };
+		AA0507 /* AuthorizationCodeViewController_New.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeViewController_New.swift; sourceTree = "<group>"; };
 		AA0601 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AA0701 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		AA0702 /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
@@ -132,6 +140,10 @@
 				AA0501 /* AuthorizationPhoneViewController.swift */,
 				AA0502 /* AuthorizationCodeViewController.swift */,
 				AA0503 /* CountrySelectionViewController.swift */,
+				AA0504 /* AuthorizationPhoneNode.swift */,
+				AA0505 /* AuthorizationCodeNode.swift */,
+				AA0506 /* AuthorizationPhoneViewController_New.swift */,
+				AA0507 /* AuthorizationCodeViewController_New.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -265,6 +277,10 @@
 				AA0005 /* Theme.swift in Sources */,
 				AA0006 /* AuthorizationPhoneViewController.swift in Sources */,
 				AA0007 /* AuthorizationCodeViewController.swift in Sources */,
+				AA0021 /* AuthorizationPhoneNode.swift in Sources */,
+				AA0022 /* AuthorizationCodeNode.swift in Sources */,
+				AA0023 /* AuthorizationPhoneViewController_New.swift in Sources */,
+				AA0024 /* AuthorizationCodeViewController_New.swift in Sources */,
 				AA0008 /* CountrySelectionViewController.swift in Sources */,
 				AA0009 /* MainTabBarController.swift in Sources */,
 				AA0010 /* ChatListViewController.swift in Sources */,
