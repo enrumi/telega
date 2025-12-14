@@ -32,7 +32,6 @@
 		AA0016 /* PhoneCountries.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1101 /* PhoneCountries.txt */; };
 		AA0017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1201 /* LaunchScreen.storyboard */; };
 		AA0018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1301 /* Assets.xcassets */; };
-		AA0019 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA1401 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
