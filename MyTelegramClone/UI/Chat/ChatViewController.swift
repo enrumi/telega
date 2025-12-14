@@ -3,8 +3,8 @@ import UIKit
 // MARK: - Экран чата с сообщениями (1:1 с Telegram)
 class ChatViewController: UIViewController {
     
-    private let chat: NetworkManager.Chat
-    private var messages: [NetworkManager.Message] = []
+    private let chat: Chat
+    private var messages: [Message] = []
     private var isLoading = false
     
     // MARK: - UI Elements
@@ -82,7 +82,7 @@ class ChatViewController: UIViewController {
     
     // MARK: - Init
     
-    init(chat: NetworkManager.Chat) {
+    init(chat: Chat) {
         self.chat = chat
         super.init(nibName: nil, bundle: nil)
     }

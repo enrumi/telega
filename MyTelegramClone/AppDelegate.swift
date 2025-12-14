@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Navigation
     
     func showAuthorizationInterface() {
-        let authController = AuthorizationPhoneViewController()
-        authController.onAuthSuccess = { [weak self] in
+        let authController = AuthorizationPhoneViewController_New()
+        // onAuthSuccess handled in AuthorizationCodeViewController_New
             self?.showMainInterface()
         }
         

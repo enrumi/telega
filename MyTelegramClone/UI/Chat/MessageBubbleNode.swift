@@ -56,7 +56,7 @@ final class MessageBubbleNode: UIView {
     
     // MARK: - Configuration
     
-    func configure(with message: NetworkManager.Message, hasNextFromSame: Bool) {
+    func configure(with message: Message, hasNextFromSame: Bool) {
         self.isOutgoing = message.isOutgoing
         self.hasNextMessageFromSameSender = hasNextFromSame
         
@@ -231,7 +231,7 @@ final class MessageBubbleNode: UIView {
     
     // MARK: - Size Calculation
     
-    static func height(for message: NetworkManager.Message, width: CGFloat) -> CGFloat {
+    static func height(for message: Message, width: CGFloat) -> CGFloat {
         let maxWidth = width * 0.7
         let padding: CGFloat = 12
         
@@ -256,7 +256,7 @@ class MessageCell_New: UITableViewCell {
     static let reuseIdentifier = "MessageCell_New"
     
     private let bubbleNode = MessageBubbleNode()
-    private var message: NetworkManager.Message?
+    private var message: Message?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -278,7 +278,7 @@ class MessageCell_New: UITableViewCell {
         bubbleNode.frame = contentView.bounds
     }
     
-    func configure(with message: NetworkManager.Message, hasNextFromSameSender: Bool) {
+    func configure(with message: Message, hasNextFromSameSender: Bool) {
         self.message = message
         bubbleNode.configure(with: message, hasNextFromSame: hasNextFromSameSender)
     }

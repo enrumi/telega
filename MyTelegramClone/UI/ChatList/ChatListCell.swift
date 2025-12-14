@@ -192,7 +192,7 @@ class ChatListCell: UITableViewCell {
     
     // MARK: - Configuration
     
-    func configure(with chat: NetworkManager.Chat) {
+    func configure(with chat: Chat) {
         // Заголовок
         titleLabel.text = chat.title
         

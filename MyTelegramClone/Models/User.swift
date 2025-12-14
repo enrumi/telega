@@ -81,7 +81,7 @@ extension NetworkManager {
         
         let chat: Chat = try await get(endpoint: endpoint)
         
-        print("✅ FOUND CHAT: \(chat.displayTitle)")
+        print("✅ FOUND CHAT: \(chat.title)")
         
         return chat
     }

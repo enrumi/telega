@@ -3,7 +3,7 @@ import UIKit
 // MARK: - Список чатов (с ChatListItemNode из оригинала Telegram)
 class ChatListViewController: UIViewController {
     
-    private var chats: [NetworkManager.Chat] = []
+    private var chats: [Chat] = []
     private var isLoading = false
     
     // MARK: - UI Elements
