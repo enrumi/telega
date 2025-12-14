@@ -114,7 +114,7 @@ class MessageCell: UITableViewCell {
     
     // MARK: - Configuration
     
-    func configure(with message: Message) {
+    func configure(with message: NetworkManager.Message) {
         messageLabel.text = message.text
         timeLabel.text = formatTime(timestamp: message.timestamp)
         
