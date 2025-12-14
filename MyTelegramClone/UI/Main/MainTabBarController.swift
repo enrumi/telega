@@ -41,8 +41,8 @@ class MainTabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "person.2.fill")
         )
         
-        // 3. Настройки
-        let settingsViewController = SettingsViewController()
+        // 3. Настройки (v2.0 с профилем и username)
+        let settingsViewController = SettingsViewController_New()
         let settingsNavController = UINavigationController(rootViewController: settingsViewController)
         settingsNavController.tabBarItem = UITabBarItem(
             title: "Settings",
