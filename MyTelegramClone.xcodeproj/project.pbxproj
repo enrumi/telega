@@ -18,6 +18,7 @@
 		AA0009 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0601 /* MainTabBarController.swift */; };
 		AA0010 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0701 /* ChatListViewController.swift */; };
 		AA0011 /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0702 /* ChatListCell.swift */; };
+		AA0020 /* ChatListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0703 /* ChatListItemNode.swift */; };
 		AA0012 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0801 /* ChatViewController.swift */; };
 		AA0013 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0802 /* MessageCell.swift */; };
 		AA0014 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0901 /* ContactsViewController.swift */; };
@@ -41,6 +42,7 @@
 		AA0601 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AA0701 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		AA0702 /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
+		AA0703 /* ChatListItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItemNode.swift; sourceTree = "<group>"; };
 		AA0801 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AA0802 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		AA0901 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				AA0701 /* ChatListViewController.swift */,
 				AA0702 /* ChatListCell.swift */,
+				AA0703 /* ChatListItemNode.swift */,
 			);
 			path = ChatList;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				AA0009 /* MainTabBarController.swift in Sources */,
 				AA0010 /* ChatListViewController.swift in Sources */,
 				AA0011 /* ChatListCell.swift in Sources */,
+				AA0020 /* ChatListItemNode.swift in Sources */,
 				AA0012 /* ChatViewController.swift in Sources */,
 				AA0013 /* MessageCell.swift in Sources */,
 				AA0014 /* ContactsViewController.swift in Sources */,
