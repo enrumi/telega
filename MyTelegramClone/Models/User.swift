@@ -1,8 +1,4 @@
 import Foundation
-
-// MARK: - User Model (из оригинала TelegramUser)
-// Источник: mytelegram-iOS/submodules/TelegramCore/Sources/SyncCore/SyncCore_TelegramUser.swift
-
 struct User: Codable {
     let id: Int64
     let firstName: String?
@@ -11,8 +7,6 @@ struct User: Codable {
     let phone: String?
     let bio: String?
     let avatarUrl: String?
-    
-    // Computed properties (из оригинала, строки 172-198)
     var nameOrPhone: String {
         if let firstName = firstName {
             if let lastName = lastName {
@@ -28,7 +22,6 @@ struct User: Codable {
             return ""
         }
     }
-    
     var shortName: String {
         if let firstName = firstName {
             return firstName
@@ -40,7 +33,6 @@ struct User: Codable {
             return ""
         }
     }
-    
     var displayName: String {
         if let username = username, !username.isEmpty {
             return "@\(username)"
@@ -48,126 +40,75 @@ struct User: Codable {
         return nameOrPhone
     }
 }
-
-// Chat и Message уже объявлены в NetworkManager.swift
-// Используем их оттуда
-
 // MARK: - Search by Username
-
 extension NetworkManager {
-    
-    /// Поиск пользователя по username
     /// GET /users/search?username=@username
     func searchUserByUsername(_ username: String) async throws -> User {
         let cleanUsername = username.replacingOccurrences(of: "@", with: "")
         let endpoint = "/users/search?username=\(cleanUsername)"
-        
-        print("🔍 SEARCH USER: @\(cleanUsername)")
-        
+        ")
         let user: User = try await get(endpoint: endpoint)
-        
-        print("✅ FOUND USER: \(user.displayName)")
-        
+        ")
         return user
     }
-    
-    /// Поиск чата по username
     /// GET /chats/search?username=@username
     func searchChatByUsername(_ username: String) async throws -> Chat {
         let cleanUsername = username.replacingOccurrences(of: "@", with: "")
         let endpoint = "/chats/search?username=\(cleanUsername)"
-        
-        print("🔍 SEARCH CHAT: @\(cleanUsername)")
-        
+        ")
         let chat: Chat = try await get(endpoint: endpoint)
-        
-        print("✅ FOUND CHAT: \(chat.title)")
-        
+        ")
         return chat
     }
-    
-    /// Получить текущего пользователя
     /// GET /users/me
     func getCurrentUser() async throws -> User {
         let endpoint = "/users/me"
-        
-        print("👤 GET CURRENT USER")
-        
         let user: User = try await get(endpoint: endpoint)
-        
-        print("✅ CURRENT USER: \(user.displayName)")
-        
+        ")
         return user
     }
-    
-    /// Обновить username
     /// PUT /users/me/username
     func updateUsername(_ username: String) async throws -> User {
         struct UpdateUsernameRequest: Codable {
             let username: String
         }
-        
         let endpoint = "/users/me/username"
         let request = UpdateUsernameRequest(username: username)
-        
-        print("📝 UPDATE USERNAME: @\(username)")
-        
+        ")
         let user: User = try await put(endpoint: endpoint, body: request)
-        
-        print("✅ USERNAME UPDATED: @\(user.username ?? "")")
-        
+        ")
         return user
     }
-    
-    /// Обновить bio
     /// PUT /users/me/bio
     func updateBio(_ bio: String) async throws -> User {
         struct UpdateBioRequest: Codable {
             let bio: String
         }
-        
         let endpoint = "/users/me/bio"
         let request = UpdateBioRequest(bio: bio)
-        
-        print("📝 UPDATE BIO")
-        
         let user: User = try await put(endpoint: endpoint, body: request)
-        
-        print("✅ BIO UPDATED")
-        
         return user
     }
 }
-
-// MARK: - Helper для PUT запросов
-
 extension NetworkManager {
-    
     func put<T: Decodable, B: Encodable>(endpoint: String, body: B) async throws -> T {
         guard let url = URL(string: baseURL + endpoint) else {
             throw NetworkError.invalidURL
         }
-        
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         if let token = authToken {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-        
         request.httpBody = try JSONEncoder().encode(body)
-        
         let (data, response) = try await session.data(for: request)
-        
         guard let httpResponse = response as? HTTPURLResponse else {
             throw URLError(.badServerResponse)
         }
-        
         guard (200...299).contains(httpResponse.statusCode) else {
             throw URLError(.badServerResponse)
         }
-        
         return try JSONDecoder().decode(T.self, from: data)
     }
 }

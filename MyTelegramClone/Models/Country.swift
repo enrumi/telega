@@ -1,40 +1,29 @@
 import Foundation
-
-// MARK: - Модель страны
 struct Country {
     let code: String        // +7
     let countryCode: String // RU
     let mask: String        // XXX XXX XXXX
     let name: String        // Russia
-    
     var displayName: String {
         return "\(name) (+\(code))"
     }
 }
-
-// MARK: - Парсер стран из файла
 class CountryManager {
     static let shared = CountryManager()
-    
     private(set) var countries: [Country] = []
-    
     private init() {
         loadCountries()
     }
-    
     private func loadCountries() {
         guard let path = Bundle.main.path(forResource: "PhoneCountries", ofType: "txt"),
               let content = try? String(contentsOfFile: path) else {
-            // Если файл не найден, добавляем популярные страны вручную
             countries = getDefaultCountries()
             return
         }
-        
         let lines = content.components(separatedBy: .newlines)
         countries = lines.compactMap { line in
             let parts = line.components(separatedBy: ";")
             guard parts.count >= 4 else { return nil }
-            
             return Country(
                 code: parts[0],
                 countryCode: parts[1],
@@ -42,13 +31,10 @@ class CountryManager {
                 name: parts[3]
             )
         }
-        
-        // Если парсинг не удался, используем дефолтные
         if countries.isEmpty {
             countries = getDefaultCountries()
         }
     }
-    
     private func getDefaultCountries() -> [Country] {
         return [
             Country(code: "7", countryCode: "RU", mask: "XXX XXX XXXX", name: "Russia"),
@@ -71,16 +57,12 @@ class CountryManager {
             Country(code: "420", countryCode: "CZ", mask: "XXX XXX XXX", name: "Czech Republic"),
         ]
     }
-    
     func findCountry(byCode code: String) -> Country? {
-        // Ищем самое длинное совпадение (для кодов типа 1, 44, 380)
         let sortedCountries = countries.sorted { $0.code.count > $1.code.count }
         return sortedCountries.first { code.hasPrefix($0.code) }
     }
-    
     func searchCountries(query: String) -> [Country] {
         guard !query.isEmpty else { return countries }
-        
         let lowercaseQuery = query.lowercased()
         return countries.filter {
             $0.name.lowercased().contains(lowercaseQuery) ||
