@@ -99,7 +99,7 @@
 				AA0200 /* Network */,
 				AA0300 /* Models */,
 				AA0400 /* UI */,
-				AA1100 /* Resources */,
+				AA1150 /* Resources */,
 				AA1201 /* LaunchScreen.storyboard */,
 				AA1301 /* Assets.xcassets */,
 				AA1401 /* Info.plist */,
@@ -204,7 +204,7 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		AA1100 /* Resources */ = {
+		AA1150 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				AA1101 /* PhoneCountries.txt */,
