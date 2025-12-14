@@ -13,8 +13,6 @@
 		AA0004 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0301 /* Country.swift */; };
 		AA0025 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0302 /* User.swift */; };
 		AA0005 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0401 /* Theme.swift */; };
-		AA0006 /* AuthorizationPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0501 /* AuthorizationPhoneViewController.swift */; };
-		AA0007 /* AuthorizationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0502 /* AuthorizationCodeViewController.swift */; };
 		AA0021 /* AuthorizationPhoneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0504 /* AuthorizationPhoneNode.swift */; };
 		AA0022 /* AuthorizationCodeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0505 /* AuthorizationCodeNode.swift */; };
 		AA0023 /* AuthorizationPhoneViewController_New.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0506 /* AuthorizationPhoneViewController_New.swift */; };
@@ -45,8 +43,6 @@
 		AA0301 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		AA0302 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA0401 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		AA0501 /* AuthorizationPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPhoneViewController.swift; sourceTree = "<group>"; };
-		AA0502 /* AuthorizationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeViewController.swift; sourceTree = "<group>"; };
 		AA0503 /* CountrySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionViewController.swift; sourceTree = "<group>"; };
 		AA0504 /* AuthorizationPhoneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPhoneNode.swift; sourceTree = "<group>"; };
 		AA0505 /* AuthorizationCodeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCodeNode.swift; sourceTree = "<group>"; };
@@ -296,8 +292,6 @@
 				AA0004 /* Country.swift in Sources */,
 				AA0025 /* User.swift in Sources */,
 				AA0005 /* Theme.swift in Sources */,
-				AA0006 /* AuthorizationPhoneViewController.swift in Sources */,
-				AA0007 /* AuthorizationCodeViewController.swift in Sources */,
 				AA0021 /* AuthorizationPhoneNode.swift in Sources */,
 				AA0022 /* AuthorizationCodeNode.swift in Sources */,
 				AA0023 /* AuthorizationPhoneViewController_New.swift in Sources */,
