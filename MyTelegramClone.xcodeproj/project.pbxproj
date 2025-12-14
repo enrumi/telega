@@ -143,8 +143,6 @@
 		AA0500 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				AA0501 /* AuthorizationPhoneViewController.swift */,
-				AA0502 /* AuthorizationCodeViewController.swift */,
 				AA0503 /* CountrySelectionViewController.swift */,
 				AA0504 /* AuthorizationPhoneNode.swift */,
 				AA0505 /* AuthorizationCodeNode.swift */,
