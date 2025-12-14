@@ -715,8 +715,8 @@ class ChatListItemNode: UITableViewCell {
 
 // MARK: - UIGestureRecognizerDelegate
 
-extension ChatListItemNode: UIGestureRecognizerDelegate {
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+extension ChatListItemNode {
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let pan = gestureRecognizer as? UIPanGestureRecognizer {
             let velocity = pan.velocity(in: self)
             // Разрешаем только горизонтальные свайпы

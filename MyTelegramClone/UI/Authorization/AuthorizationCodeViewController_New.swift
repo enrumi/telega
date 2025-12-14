@@ -66,8 +66,8 @@ class AuthorizationCodeViewController_New: UIViewController {
         
         codeNode.inProgress = true
         
-        NetworkManager.shared.login(phone: phoneNumber, code: code) { [weak self] result in
-            DispatchQueue.main.async {
+        NetworkManager.shared.login(phone: phoneNumber, code: code) { result in
+            DispatchQueue.main.async { [weak self] in
                 self?.codeNode.inProgress = false
                 
                 switch result {
@@ -112,8 +112,8 @@ class AuthorizationCodeViewController_New: UIViewController {
         
         codeNode.inProgress = true
         
-        NetworkManager.shared.login(phone: phoneNumber) { [weak self] result in
-            DispatchQueue.main.async {
+        NetworkManager.shared.login(phone: phoneNumber, code: nil) { result in
+            DispatchQueue.main.async { [weak self] in
                 self?.codeNode.inProgress = false
                 
                 switch result {

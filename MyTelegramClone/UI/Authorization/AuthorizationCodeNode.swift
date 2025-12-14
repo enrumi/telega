@@ -38,7 +38,7 @@ final class CodeInputView: UIView, UITextFieldDelegate {
         addSubview(textField)
         
         // Создаём 5 квадратиков для цифр (как в оригинале)
-        for i in 0..<codeLength {
+        for _ in 0..<codeLength {
             let digitView = UIView()
             digitView.backgroundColor = theme.Authorization.inputFieldBackgroundColor
             digitView.layer.cornerRadius = 12
@@ -377,7 +377,7 @@ final class AuthorizationCodeNode: UIView {
         
         let keyboardHeight = keyboardFrame.height
         scrollView.contentInset.bottom = keyboardHeight
-        scrollView.scrollIndicatorInsets.bottom = keyboardHeight
+        scrollView.verticalScrollIndicatorInsets.bottom = keyboardHeight
         
         let codeFrame = codeInputView.frame
         scrollView.scrollRectToVisible(codeFrame, animated: true)
@@ -385,7 +385,7 @@ final class AuthorizationCodeNode: UIView {
     
     @objc private func keyboardWillHide(_ notification: Notification) {
         scrollView.contentInset.bottom = 0
-        scrollView.scrollIndicatorInsets.bottom = 0
+        scrollView.verticalScrollIndicatorInsets.bottom = 0
     }
     
     // MARK: - Public API

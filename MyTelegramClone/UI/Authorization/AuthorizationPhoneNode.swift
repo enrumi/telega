@@ -480,7 +480,7 @@ final class AuthorizationPhoneNode: UIView {
         
         let keyboardHeight = keyboardFrame.height
         scrollView.contentInset.bottom = keyboardHeight
-        scrollView.scrollIndicatorInsets.bottom = keyboardHeight
+        scrollView.verticalScrollIndicatorInsets.bottom = keyboardHeight
         
         // Scroll to phone input
         let phoneFrame = phoneAndCountryNode.frame
@@ -489,7 +489,7 @@ final class AuthorizationPhoneNode: UIView {
     
     @objc private func keyboardWillHide(_ notification: Notification) {
         scrollView.contentInset.bottom = 0
-        scrollView.scrollIndicatorInsets.bottom = 0
+        scrollView.verticalScrollIndicatorInsets.bottom = 0
     }
     
     // MARK: - Public API

@@ -188,7 +188,7 @@ extension ChatListViewController: UITableViewDataSource {
         
         let messages = [EngineMessage(
             id: 0,
-            text: chat.lastMessage,
+            text: chat.lastMessage ?? "",
             timestamp: Int32(Date().timeIntervalSince1970 - Double(indexPath.row * 300)),
             author: nil
         )]
@@ -206,7 +206,7 @@ extension ChatListViewController: UITableViewDataSource {
             peer: peer,
             threadInfo: nil,
             messages: messages,
-            readState: chat.unreadCount > 0 ? chat.unreadCount : nil,
+            readState: (chat.unreadCount ?? 0) > 0 ? chat.unreadCount : nil,
             isRemovedFromTotalUnreadCount: false,
             draftState: nil,
             isPinned: false,

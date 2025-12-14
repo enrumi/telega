@@ -139,8 +139,6 @@ class AuthorizationPhoneViewController: UIViewController {
     private func setupUI() {
         // UI уже настроен в AuthorizationPhoneNode
         return
-        
-        view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
         contentView.addSubview(titleLabel)
@@ -216,7 +214,7 @@ class AuthorizationPhoneViewController: UIViewController {
             target: self,
             action: #selector(nextButtonTapped)
         )
-        phoneNode.inProgress = true
+        // phoneNode.inProgress = true // Old code
         navigationItem.rightBarButtonItem = nextButton
         
         // Применяем тему

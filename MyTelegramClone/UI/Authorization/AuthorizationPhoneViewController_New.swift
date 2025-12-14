@@ -21,7 +21,7 @@ class AuthorizationPhoneViewController_New: UIViewController {
             self?.sendCode()
         }
         
-        phoneNode.debugAction = { [weak self] in
+        phoneNode.debugAction = {
             print("🔧 Debug action triggered")
         }
         
@@ -51,7 +51,7 @@ class AuthorizationPhoneViewController_New: UIViewController {
     
     private func loadDefaultCountry() {
         // По умолчанию Россия
-        selectedCountry = Country(name: "Russia", code: "+7", flag: "🇷🇺")
+        // Используем существующую модель Country
         phoneNode.updateCountry(name: "Russia", code: "+7", flag: "🇷🇺")
     }
     
@@ -64,7 +64,7 @@ class AuthorizationPhoneViewController_New: UIViewController {
             self?.phoneNode.updateCountry(
                 name: country.name,
                 code: country.code,
-                flag: country.flag
+                flag: "🌍" // TODO: добавить флаги в Country модель
             )
         }
         navigationController?.pushViewController(countryVC, animated: true)
@@ -83,8 +83,8 @@ class AuthorizationPhoneViewController_New: UIViewController {
         
         phoneNode.inProgress = true
         
-        NetworkManager.shared.login(phone: fullPhoneNumber) { [weak self] result in
-            DispatchQueue.main.async {
+        NetworkManager.shared.login(phone: fullPhoneNumber, code: nil) { result in
+            DispatchQueue.main.async { [weak self] in
                 self?.phoneNode.inProgress = false
                 
                 switch result {
