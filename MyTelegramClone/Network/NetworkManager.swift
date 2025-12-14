@@ -98,7 +98,7 @@ public final class NetworkManager {
         }
     }
     
-    private let session: URLSession
+    let session: URLSession
     
     private init() {
         let config = URLSessionConfiguration.default

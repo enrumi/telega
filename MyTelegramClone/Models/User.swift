@@ -79,7 +79,7 @@ extension NetworkManager {
         
         print("🔍 SEARCH CHAT: @\(cleanUsername)")
         
-        let chat: Chat = try await NetworkManager.shared.get(endpoint: endpoint)
+        let chat: Chat = try await get(endpoint: endpoint)
         
         print("✅ FOUND CHAT: \(chat.displayTitle)")
         
@@ -158,14 +158,14 @@ extension NetworkManager {
         
         request.httpBody = try JSONEncoder().encode(body)
         
-        let (data, response) = try await session.data(for: request)
+        let (data, response) = try await NetworkManager.shared.session.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.invalidResponse
+            throw URLError(.badServerResponse)
         }
         
         guard (200...299).contains(httpResponse.statusCode) else {
-            throw NetworkError.serverError(httpResponse.statusCode)
+            throw URLError(.badServerResponse)
         }
         
         return try JSONDecoder().decode(T.self, from: data)
