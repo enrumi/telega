@@ -220,7 +220,7 @@ class AuthorizationPhoneViewController: UIViewController {
         
         // Применяем тему
         navigationController?.navigationBar.tintColor = TelegramTheme.NavigationBar.buttonColor
-        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.backgroundColor
+        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.opaqueBackgroundColor
         navigationController?.navigationBar.isTranslucent = true
     }
     

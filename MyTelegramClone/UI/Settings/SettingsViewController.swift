@@ -5,7 +5,7 @@ class SettingsViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .insetGrouped)
-        table.backgroundColor = TelegramTheme.Settings.backgroundColor
+        table.backgroundColor = TelegramTheme.Settings.blocksBackgroundColor
         table.delegate = self
         table.dataSource = self
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -25,11 +25,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = TelegramTheme.Settings.backgroundColor
+        view.backgroundColor = TelegramTheme.Settings.blocksBackgroundColor
         title = "Settings"
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.backgroundColor
+        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.opaqueBackgroundColor
         navigationController?.navigationBar.tintColor = TelegramTheme.NavigationBar.buttonColor
         
         view.addSubview(tableView)
@@ -59,10 +59,10 @@ extension SettingsViewController: UITableViewDataSource {
         cell.imageView?.tintColor = TelegramTheme.accentColor
         
         if item.0 == "Log Out" {
-            cell.textLabel?.textColor = TelegramTheme.Settings.destructiveColor
-            cell.imageView?.tintColor = TelegramTheme.Settings.destructiveColor
+            cell.textLabel?.textColor = TelegramTheme.Settings.itemDestructiveColor
+            cell.imageView?.tintColor = TelegramTheme.Settings.itemDestructiveColor
         } else {
-            cell.textLabel?.textColor = TelegramTheme.Settings.itemTitleColor
+            cell.textLabel?.textColor = TelegramTheme.Settings.itemPrimaryTextColor
             cell.accessoryType = .disclosureIndicator
         }
         

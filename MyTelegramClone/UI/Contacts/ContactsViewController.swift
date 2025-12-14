@@ -20,7 +20,7 @@ class ContactsViewController: UIViewController {
         title = "Contacts"
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.backgroundColor
+        navigationController?.navigationBar.backgroundColor = TelegramTheme.NavigationBar.opaqueBackgroundColor
         navigationController?.navigationBar.tintColor = TelegramTheme.NavigationBar.buttonColor
         
         view.addSubview(emptyLabel)

@@ -21,7 +21,7 @@ class CountrySelectionViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
-        table.backgroundColor = TelegramTheme.Settings.backgroundColor
+        table.backgroundColor = TelegramTheme.Settings.plainBackgroundColor
         table.separatorColor = TelegramTheme.Common.separatorColor
         table.delegate = self
         table.dataSource = self
@@ -43,7 +43,7 @@ class CountrySelectionViewController: UIViewController {
     
     private func setupUI() {
         title = "Country"
-        view.backgroundColor = TelegramTheme.Settings.backgroundColor
+        view.backgroundColor = TelegramTheme.Settings.plainBackgroundColor
         
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = TelegramTheme.NavigationBar.buttonColor
@@ -80,8 +80,8 @@ extension CountrySelectionViewController: UITableViewDataSource {
         
         cell.textLabel?.text = country.displayName
         cell.textLabel?.font = TelegramFonts.settingsItemTitle
-        cell.textLabel?.textColor = TelegramTheme.Settings.itemTitleColor
-        cell.backgroundColor = TelegramTheme.Settings.itemBackgroundColor
+        cell.textLabel?.textColor = TelegramTheme.Settings.itemPrimaryTextColor
+        cell.backgroundColor = TelegramTheme.Settings.itemBlocksBackgroundColor
         
         return cell
     }

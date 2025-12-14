@@ -307,7 +307,7 @@ class ChatViewController: UIViewController {
     private func updateSendButtonState() {
         let hasText = !(inputTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true)
         sendButton.isEnabled = hasText
-        sendButton.tintColor = hasText ? TelegramTheme.Chat.sendButtonColor : TelegramTheme.Chat.sendButtonDisabledColor
+        sendButton.tintColor = hasText ? TelegramTheme.Chat.actionControlFillColor : TelegramTheme.Chat.panelControlDisabledColor
     }
     
     deinit {

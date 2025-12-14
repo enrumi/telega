@@ -83,7 +83,7 @@ class ChatListCell: UITableViewCell {
     private let pinnedIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "pin.fill")
-        imageView.tintColor = TelegramTheme.ChatList.messageColor
+        imageView.tintColor = TelegramTheme.ChatList.messageTextColor
         imageView.contentMode = .scaleAspectFit
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -121,7 +121,7 @@ class MessageCell: UITableViewCell {
         if message.isOutgoing {
             // Исходящее сообщение (справа, зелёное)
             bubbleView.backgroundColor = TelegramTheme.Chat.outgoingBubbleBackgroundColor
-            messageLabel.textColor = TelegramTheme.Chat.outgoingBubbleTextColor
+            messageLabel.textColor = TelegramTheme.Chat.outgoingBubblePrimaryTextColor
             timeLabel.textColor = TelegramTheme.Chat.outgoingBubbleSecondaryTextColor
             
             bubbleLeadingConstraint.isActive = false
@@ -140,7 +140,7 @@ class MessageCell: UITableViewCell {
         } else {
             // Входящее сообщение (слева, серое)
             bubbleView.backgroundColor = TelegramTheme.Chat.incomingBubbleBackgroundColor
-            messageLabel.textColor = TelegramTheme.Chat.incomingBubbleTextColor
+            messageLabel.textColor = TelegramTheme.Chat.incomingBubblePrimaryTextColor
             timeLabel.textColor = TelegramTheme.Chat.incomingBubbleSecondaryTextColor
             
             bubbleLeadingConstraint.isActive = true
