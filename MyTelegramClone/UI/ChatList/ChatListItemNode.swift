@@ -358,7 +358,7 @@ class ChatListItemNode: UITableViewCell {
         
         // Right side (date, badge, icons)
         let rightContentWidth: CGFloat = 80
-        let rightContentX = width - Constants.rightInset - rightContentWidth
+        let _ = width - Constants.rightInset - rightContentWidth // rightContentX unused
         
         // Date
         dateLabel.sizeToFit()
@@ -597,7 +597,7 @@ class ChatListItemNode: UITableViewCell {
     // MARK: - Avatar Configuration (из оригинала, строки 2000+)
     
     private func configureAvatar(for peer: EnginePeer) {
-        if let avatarUrl = peer.avatarUrl, let url = URL(string: avatarUrl) {
+        if let avatarUrl = peer.avatarUrl, let _ = URL(string: avatarUrl) {
             // TODO: загрузка изображения
             avatarImageView.isHidden = false
             avatarTextLabel.isHidden = true
@@ -637,7 +637,7 @@ class ChatListItemNode: UITableViewCell {
     private func formatMessageDate(timestamp: Int32) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
         let calendar = Calendar.current
-        let now = Date()
+        let _ = Date() // now unused
         
         if calendar.isDateInToday(date) {
             let formatter = DateFormatter()

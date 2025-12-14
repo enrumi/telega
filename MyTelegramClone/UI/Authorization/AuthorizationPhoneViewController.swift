@@ -139,7 +139,6 @@ class AuthorizationPhoneViewController: UIViewController {
     private func setupUI() {
         // UI уже настроен в AuthorizationPhoneNode
         return
-        scrollView.addSubview(contentView)
         
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)

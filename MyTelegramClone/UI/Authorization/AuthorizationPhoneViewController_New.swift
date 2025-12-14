@@ -83,21 +83,23 @@ class AuthorizationPhoneViewController_New: UIViewController {
         
         phoneNode.inProgress = true
         
-        NetworkManager.shared.login(phone: fullPhoneNumber, code: nil) { result in
-            DispatchQueue.main.async { [weak self] in
-                self?.phoneNode.inProgress = false
+        Task {
+            do {
+                // В реальном приложении здесь был бы запрос только на отправку кода
+                // Но у нас упрощённый API, так что просто переходим на следующий экран
+                print("📱 Отправка кода на: \(fullPhoneNumber)")
                 
-                switch result {
-                case .success(let response):
-                    print("✅ Код отправлен: \(response)")
+                await MainActor.run {
+                    self.phoneNode.inProgress = false
                     
                     // Переходим на экран ввода кода
-                    let codeVC = AuthorizationCodeViewController(phoneNumber: fullPhoneNumber)
-                    self?.navigationController?.pushViewController(codeVC, animated: true)
-                    
-                case .failure(let error):
-                    print("❌ Ошибка: \(error.localizedDescription)")
-                    self?.showAlert(
+                    let codeVC = AuthorizationCodeViewController_New(phoneNumber: fullPhoneNumber)
+                    self.navigationController?.pushViewController(codeVC, animated: true)
+                }
+            } catch {
+                await MainActor.run {
+                    self.phoneNode.inProgress = false
+                    self.showAlert(
                         title: "Error",
                         message: "Failed to send code. Please try again."
                     )

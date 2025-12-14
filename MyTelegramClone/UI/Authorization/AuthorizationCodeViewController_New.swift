@@ -66,20 +66,20 @@ class AuthorizationCodeViewController_New: UIViewController {
         
         codeNode.inProgress = true
         
-        NetworkManager.shared.login(phone: phoneNumber, code: code) { result in
-            DispatchQueue.main.async { [weak self] in
-                self?.codeNode.inProgress = false
+        Task {
+            do {
+                let response = try await NetworkManager.shared.login(phone: phoneNumber, code: code)
+                print("✅ Авторизация успешна: \(response)")
                 
-                switch result {
-                case .success(let response):
-                    print("✅ Авторизация успешна: \(response)")
-                    
-                    // Переходим на главный экран
-                    self?.navigateToMainApp()
-                    
-                case .failure(let error):
-                    print("❌ Ошибка: \(error.localizedDescription)")
-                    self?.codeNode.showError("Invalid code. Please try again.")
+                await MainActor.run {
+                    self.codeNode.inProgress = false
+                    self.navigateToMainApp()
+                }
+            } catch {
+                print("❌ Ошибка: \(error.localizedDescription)")
+                await MainActor.run {
+                    self.codeNode.inProgress = false
+                    self.codeNode.showError("Invalid code. Please try again.")
                 }
             }
         }
@@ -112,16 +112,15 @@ class AuthorizationCodeViewController_New: UIViewController {
         
         codeNode.inProgress = true
         
-        NetworkManager.shared.login(phone: phoneNumber, code: nil) { result in
-            DispatchQueue.main.async { [weak self] in
-                self?.codeNode.inProgress = false
+        Task {
+            do {
+                // В реальном приложении здесь был бы метод resendCode()
+                // Для демо просто показываем уведомление
+                print("🔄 Повторная отправка кода")
                 
-                switch result {
-                case .success:
-                    self?.showAlert(title: "Code Sent", message: "A new code has been sent to \(self?.phoneNumber ?? "")")
-                    
-                case .failure(let error):
-                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                await MainActor.run {
+                    self.codeNode.inProgress = false
+                    self.showAlert(title: "Code Sent", message: "A new code has been sent to \(self.phoneNumber)")
                 }
             }
         }
