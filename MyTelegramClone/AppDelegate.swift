@@ -7,16 +7,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // РЎРѕР·РґР°С‘Рј РіР»Р°РІРЅРѕРµ РѕРєРЅРѕ
+        // Создаём главное окно
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         
-        // РџСЂРѕРІРµСЂСЏРµРј Р°РІС‚РѕСЂРёР·Р°С†РёСЋ
+        // Проверяем авторизацию
         if NetworkManager.shared.isAuthorized() {
-            print("вњ… РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ, РїРѕРєР°Р·С‹РІР°РµРј РіР»Р°РІРЅС‹Р№ СЌРєСЂР°РЅ")
+            print("? Пользователь авторизован, показываем главный экран")
             showMainInterface()
         } else {
-            print("вљ пёЏ РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ, РїРѕРєР°Р·С‹РІР°РµРј Р°РІС‚РѕСЂРёР·Р°С†РёСЋ")
+            print("?? Пользователь не авторизован, показываем авторизацию")
             showAuthorizationInterface()
         }
         
@@ -29,9 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showAuthorizationInterface() {
         let authController = AuthorizationPhoneViewController_New()
-        // onAuthSuccess handled in AuthorizationCodeViewController_New
-            self?.showMainInterface()
-        }
         
         let navigationController = UINavigationController(rootViewController: authController)
         navigationController.navigationBar.prefersLargeTitles = false
